@@ -32,11 +32,8 @@ requirements:
     - ninja
     - perl
   host:
-    - qtbase {{ version }}
+    - qtbase-devel {{ version }}
     - qttools {{ version }}
-    # X11 dependencies
-    - libgl-devel  # [linux]
-    - libegl-devel  # [linux]
   run_constrained:
     - qt-main >={{ version }},<7
     - qt >={{ version }},<7
