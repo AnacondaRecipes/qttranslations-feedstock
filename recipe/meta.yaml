@@ -1,17 +1,17 @@
 {% set name = "qttranslations" %}
-{% set version = "6.7.3" %}
+{% set version = "6.9.1" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  - url: https://download.qt.io/archive/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/{{ name }}-everywhere-src-{{ version }}.tar.xz
-    sha256: dcc762acac043b9bb5e4d369b6d6f53e0ecfcf76a408fe0db5f7ef071c9d6dc8
+  - url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/{{ name }}-everywhere-src-{{ version }}.tar.xz
+    sha256: 9761a1a555f447cdeba79fdec6a705dee8a7882ac10c12e85f49467ddd01a741
     folder: {{ name }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [osx and x86_64]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -21,14 +21,14 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - pkg-config  # [unix]
-    - bison  # [linux]
-    - flex  # [linux]
-    - gperf  # [linux]
-    - jom  # [win]
-    - m2-bison  # [win]
-    - m2-flex  # [win]
-    - m2-gperf  # [win]
+    - pkg-config   # [unix]
+    - bison        # [linux]
+    - flex         # [linux]
+    - gperf        # [linux]
+    - jom          # [win]
+    - msys2-bison  # [win]
+    - msys2-flex   # [win]
+    - msys2-gperf  # [win]
     - cmake
     - ninja
     - perl
